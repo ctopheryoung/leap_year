@@ -7,5 +7,7 @@ describe('leapYear', function() {
     expect(leapYear(2004)).to.equal(true);
   });
 
-
+  it ("is false for years divisible by 100", function() {
+    expect(leapYear(1900)).to.equal(false);
+  });
 });
