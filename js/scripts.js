@@ -1,5 +1,7 @@
 var leapYear = function (year) {
-  if ((year % 4 === 0) && (year % 100 !==0) && (year>0) || (year % 400 === 0) && (year>0)) {
+  if (isNaN(year) === true) {
+    return "error";
+  } else if ((year % 4 === 0) && (year % 100 !==0) && (year>0) || (year % 400 === 0) && (year>0)) {
     return true;
   } else {
     return false;
@@ -13,13 +15,17 @@ $(document).ready(function() {
 
     $(".year").text(year);
 
-    if (result === false) {
+    if (result === "error") {
+      $("#result").hide();
+      alert("Please enter valid year.");
+    } else if (result === false) {
       $(".not").text("not");
+      $("#result").show();
     } else {
       $(".not").text("");
+      $("#result").show();
     }
 
-    $("#result").show();
     event.preventDefault();
   });
 });
