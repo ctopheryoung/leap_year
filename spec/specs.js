@@ -15,4 +15,16 @@ describe('leapYear', function() {
     expect(leapYear(2000)).to.equal(true);
   });
 
+  it ("is false for a string", function () {
+    expect(leapYear("foobar")).to.equal(false);
+  });
+
+  it ("is false for nothing", function () {
+    expect(leapYear()).to.equal(false);
+  });
+
+  it ("is false for negative numbers", function () {
+    expect(leapYear(-800)).to.equal(false);
+  });
+
 });
